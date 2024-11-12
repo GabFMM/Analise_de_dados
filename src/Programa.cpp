@@ -42,10 +42,10 @@ void Programa::opcoesGerais() {
 		<< "Agora escolha uma opcao: \n\n"
 		<< "1. Inserir uma informacao no comeco das listas;\n"
 		<< "2. Inserir uma informacao no final das listas;\n"
-		<< "3. Inserir uma informacao em uma posicao escolhida das listas;\n"
+		<< "3. Inserir uma informacao em uma posicao escolhida das listas;\n\n"
 		<< "4. Remover uma informacao no comeco das listas;\n"
 		<< "5. Remover uma informacao no final das listas;\n"
-		<< "6. Remover uma informacao em uma posicao escolhida das listas;\n"
+		<< "6. Remover uma informacao em uma posicao escolhida das listas;\n\n"
 		<< "7. Procurar uma informacao a partir do RG nas listas;\n"
 		<< "8. Mostrar a lista na tela;\n"
 		<< "9. Salvar a lista modificada em um arquivo .txt;\n"
@@ -186,7 +186,7 @@ void Programa::opcoesProcurar() {
 		break;
 	case 2:
 		limparTela();
-		
+		procurarBinario();
 		limparTela();
 	case 0:
 		limparTela();
@@ -424,6 +424,31 @@ void Programa::mostrarLista() {
 }
 
 // -------------------------------- METODOS T2 --------------------------------------------------------
+
+void Programa::procurarBinario() {
+	if (!_lSequencial.verificarOrdem()) {
+		std::cout
+			<< "Lista(s) nao ordenadas.\n"
+			<< "Volte para o menu para ordena-las.\n\n";
+
+		char c;
+		std::cin >> c;
+
+		return;
+	}
+
+	unsigned int rg = 0;
+
+	std::cout << "Qual o numero de RG?\n";
+	std::cin >> rg;
+	std::cout << std::endl;
+
+	std::cout << "Lista sequencial:\n\n";
+	_lSequencial.procurarBinario(rg);
+
+	char c;
+	std::cin >> c;
+}
 
 void Programa::selectionSort() {
 	_lSequencial.selectionSort();

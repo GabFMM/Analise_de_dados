@@ -32,6 +32,7 @@ private:
 	void mostrarLista();
 
 	// Metodos T2
+	void procurarBinario();
 	void selectionSort();
 	void insertionSort();
 	void bobbleSort();

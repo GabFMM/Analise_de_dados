@@ -44,5 +44,8 @@
     <ClInclude Include="headers\No.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
+    <ClInclude Include="headers\LDuplaEncadeadaT.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

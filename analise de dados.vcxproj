@@ -135,6 +135,7 @@
   <ItemGroup>
     <ClInclude Include="headers\Informacao.h" />
     <ClInclude Include="headers\LDuplaEncadeada.h" />
+    <ClInclude Include="headers\LDuplaEncadeadaT.h" />
     <ClInclude Include="headers\LSequencial.h" />
     <ClInclude Include="headers\No.h" />
     <ClInclude Include="headers\Programa.h" />

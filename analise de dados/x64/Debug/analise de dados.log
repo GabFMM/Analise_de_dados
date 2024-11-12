@@ -1,7 +1,9 @@
 ﻿  LSequencial.cpp
-C:\Users\gabri\OneDrive\Documentos\Tudo\Facul\ED1\t1\analise de dados\src\LSequencial.cpp(49,17): warning C4244: '*=': conversão de 'float' para 'unsigned int', possível perda de dados
+C:\Users\gabri\OneDrive\Documentos\Tudo\Facul\ED1\t1\analise de dados\src\LSequencial.cpp(49,22): warning C4244: '+=': conversão de 'float' para 'unsigned int', possível perda de dados
 C:\Users\gabri\OneDrive\Documentos\Tudo\Facul\ED1\t1\analise de dados\src\LSequencial.cpp(81,17): warning C4244: '*=': conversão de 'float' para 'unsigned int', possível perda de dados
 C:\Users\gabri\OneDrive\Documentos\Tudo\Facul\ED1\t1\analise de dados\src\LSequencial.cpp(133,17): warning C4244: '*=': conversão de 'float' para 'unsigned int', possível perda de dados
 C:\Users\gabri\OneDrive\Documentos\Tudo\Facul\ED1\t1\analise de dados\src\LSequencial.cpp(210,17): warning C4244: '*=': conversão de 'float' para 'unsigned int', possível perda de dados
-C:\Users\gabri\OneDrive\Documentos\Tudo\Facul\ED1\t1\analise de dados\src\LSequencial.cpp(623,18): warning C4101: 'j': variável local não referenciada
+C:\Users\gabri\OneDrive\Documentos\Tudo\Facul\ED1\t1\analise de dados\src\LSequencial.cpp(654,18): warning C4101: 'j': variável local não referenciada
+  Programa.cpp
+  Gerando Código...
   analise de dados.vcxproj -> C:\Users\gabri\OneDrive\Documentos\Tudo\Facul\ED1\t1\analise de dados\x64\Debug\analise de dados.exe

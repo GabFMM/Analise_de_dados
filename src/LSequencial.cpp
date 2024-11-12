@@ -46,7 +46,7 @@ void LSequencial::adicionarInformacao(unsigned int rg, const char* nome) {
 
     // Verifica se a lista esta cheia
     if (static_cast<int>(_posicao) == _tam) {
-        _tam *= 1.25f;
+        _tam += _tam * 0.2f;
         Informacao* informacao = new Informacao[_tam];
 
         for (unsigned int i = 0; i < _posicao; i++) {
@@ -529,16 +529,28 @@ bool LSequencial::verificarOrdem() {
 }
 
 void LSequencial::procurarBinario(unsigned int RG) {
+    auto inicio = std::chrono::high_resolution_clock::now();
+
+    int comparacoes = 0,
+        modificacoes = 0;
+
+    // Inicio da logica
+
     bool encontrou = false;
     unsigned int minimo = 0;
-    unsigned int maximo = _posicao;
+    unsigned int maximo = _posicao - 1;
+    unsigned int posicaoAtual = 0;
 
     while (!encontrou) {
-        if (_lista[(maximo - minimo) / 2]._RG > RG) {
+        comparacoes += 3;
+        posicaoAtual = minimo + (maximo - minimo) / 2;
+
+        if (_lista[posicaoAtual]._RG > RG) {
+            maximo = posicaoAtual - 1;
             
         }
-        else if(_lista[(maximo - minimo) / 2]._RG < RG){
-            
+        else if(_lista[posicaoAtual]._RG < RG){
+            minimo = posicaoAtual + 1;
         }
         else {
             encontrou = true;
@@ -546,7 +558,26 @@ void LSequencial::procurarBinario(unsigned int RG) {
     }
 
     if (encontrou) {
-        // Finaliza
+        // Fim da logica
+
+        auto fim = std::chrono::high_resolution_clock::now();
+
+        auto duracaoSegundos = std::chrono::duration<double>(fim - inicio);
+        auto duracaoMilissegundos = std::chrono::duration_cast<std::chrono::milliseconds>(fim - inicio);
+        auto duracaoMicrosegundos = std::chrono::duration_cast<std::chrono::microseconds>(fim - inicio);
+
+        std::cout
+            << "Numero de RG encontrado.\n\n"
+            << "Numero de RG: " << _lista[posicaoAtual]._RG << "\n"
+            << "Nome da pessoa: " << _lista[posicaoAtual]._nome << "\n"
+            << "Posicao na lista: " << posicaoAtual + 1 << "\n"
+            << "Numero de comparacoes: " << comparacoes << "\n"
+            << "Numero de modificacoes: " << modificacoes << "\n\n"
+            << "Tempo de Execucao:\n"
+            << "-> " << duracaoSegundos.count() << " s\n"
+            << "-> " << duracaoMilissegundos.count() << " ms\n"
+            << "-> " << duracaoMicrosegundos.count() << " microsegundos\n"
+            << std::endl;
     }
 }
 
