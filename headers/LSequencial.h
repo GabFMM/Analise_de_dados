@@ -16,6 +16,9 @@ public:
     LSequencial();
     ~LSequencial();
 
+    // ACESSO AOS ATRIBUTOS
+    const unsigned int getPosicao() const;
+
     // METODOS T1
     void mostrar();                                                // Concluido
     void removerComeco();                                          // Concluido
@@ -31,8 +34,9 @@ public:
     
     // METODOS T2
     bool verificarOrdem();
-    void procurarBinario(unsigned int RG);                         // Em processo
-    void selectionSort();                                          // Concluido
-    void insertionSort();                                          // Concluido
-    void bobbleSort();                                             // Concluido
+    void procurarBinario(unsigned int RG);                                   // Concluido
+    void selectionSort();                                                    // Concluido
+    void insertionSort();                                                    // Concluido
+    void bobbleSort();                                                       // Concluido
+    void quickSort(unsigned int indiceInicial, unsigned int indiceFinal);    // Em processo
 };

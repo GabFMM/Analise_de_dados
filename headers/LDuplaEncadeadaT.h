@@ -5,6 +5,12 @@ template <class TIPO>
 class LDuplaEncadeada {
 private:
 
+	No* _primeiro;
+	No* _ultimo;
+	unsigned int _quantidade;
+
+public:
+
 	class No {
 	private:
 		TIPO* _informacao;
@@ -46,9 +52,6 @@ private:
 			return *_informacao;
 		}
 	};
-	No* _primeiro;
-	No* _ultimo;
-	unsigned int _quantidade;
 
 public:
 	LDuplaEncadeada() : _primeiro(nullptr), _ultimo(nullptr), _quantidade(0) {};
@@ -67,20 +70,47 @@ public:
 	void inserir(unsigned int posicao) {
 
 	}
-	void inserirComeco() {
+	void inserirComeco(TIPO* tipo) {
+		No* novo = new No(tipo);
+		_quantidade++;
+
+		// Verifica se a lista possui somente um elemento 
+		if (_ultimo == _primeiro) {
+			_primeiro = novo;
+			_ultimo = novo;
+		}
+		else {
+			// novo->setAnterior(nullptr); presente no construtor
+			novo->setProximo(_primeiro);
+			_primeiro->setAnterior(novo);
+			_primeiro = novo;
+		}
 
 	}
 	void inserirFim(TIPO* tipo) {
 		No* novo = new No(tipo);
+		_quantidade++;
 
 		// Verifica se a lista possui somente um elemento nela
 		if (_ultimo == _primeiro) {
 			_ultimo = novo;
-			_ultimo->setAnterior(_primeiro);
-			_ultimo->setProximo(nullptr);
+			_primeiro = novo;
 		}
 		else {
-
+			// novo->setProximo(nullptr); presente no construtor
+			novo->setAnterior(_ultimo);
+			_ultimo->setProximo(novo);
+			_ultimo = novo;
 		}
 	}
+
+	// metodos de remocao
+	void removerComeco(){
+		_quantidade--;
+
+		_primeiro->getProximo()->getAnterior();
+
+	}
+	void removerFim(){}
+	void remover(unsigned int posicao){}
 };

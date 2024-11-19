@@ -28,6 +28,12 @@ LSequencial::~LSequencial() {
         delete[] _lista;
 }
 
+// ----------------------------------- ACESSO AOS ATRIBUTOS ------------------------------------------------------
+
+const unsigned int LSequencial::getPosicao() const {
+    return _posicao;
+}
+
 // ------------------------------------------ METODOS T1 ---------------------------------------------------------
 
 void LSequencial::mostrar() {
@@ -740,4 +746,38 @@ void LSequencial::bobbleSort() {
         << "-> " << duracaoMilissegundos.count() << " ms\n"
         << "-> " << duracaoMicrosegundos.count() << " microsegundos\n"
         << std::endl;
+}
+
+void LSequencial::quickSort(unsigned int indiceInicial, unsigned int indiceFinal) {
+    unsigned int
+        pivo = 0,
+        i    = 0,
+        j    = 0;
+
+    i = indiceInicial;
+    j = indiceFinal;
+    pivo = _lista[(i + j) / 2]._RG;
+
+    while (!(i > j)) {
+        while (_lista[i]._RG < pivo)
+            ++i;
+        
+        while (_lista[j]._RG > pivo)
+            --j;
+
+        if (i <= j) {
+            std::swap(_lista[i]._RG, _lista[j]._RG);
+            std::swap(_lista[i]._nome, _lista[j]._nome);
+            mostrar();
+
+            ++i;
+            --j;
+        }
+    }
+
+    if (j > indiceInicial)
+        quickSort(j, indiceFinal);
+    
+    if (i < indiceFinal)
+        quickSort(indiceInicial, i);
 }

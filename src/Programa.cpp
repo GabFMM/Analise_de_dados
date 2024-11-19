@@ -48,7 +48,7 @@ void Programa::opcoesGerais() {
 		<< "6. Remover uma informacao em uma posicao escolhida das listas;\n\n"
 		<< "7. Procurar uma informacao a partir do RG nas listas;\n"
 		<< "8. Mostrar a lista na tela;\n"
-		<< "9. Salvar a lista modificada em um arquivo .txt;\n"
+		<< "9. Salvar a lista modificada em um arquivo .txt;\n\n"
 		<< "10. Ordenar listas.\n\n"
 		<< "0. Encerrar programa.\n";
 
@@ -122,12 +122,13 @@ void Programa::opcoesOrdenar() {
 		<< "1. Selection Sort;\n"
 		<< "2. Insertion Sort;\n"
 		<< "3. Bobble Sort;\n"
+		<< "4. Quick Sort;\n"
 		<< "\n0. Voltar;\n";
 		
 	std::fflush(stdin);
 
 	std::cin >> _opcaoSelecionada;
-	while (_opcaoSelecionada < 0 || _opcaoSelecionada > 3) {
+	while (_opcaoSelecionada < 0 || _opcaoSelecionada > 4) {
 		std::cout
 			<< "\nNumero informado incorreto.\n"
 			<< "Tente novamente." << std::endl;
@@ -149,6 +150,11 @@ void Programa::opcoesOrdenar() {
 	case 3:
 		limparTela();
 		bobbleSort();
+		limparTela();
+		break;
+	case 4:
+		limparTela();
+		quickSort();
 		limparTela();
 		break;
 	case 0:
@@ -470,6 +476,16 @@ void Programa::insertionSort() {
 
 void Programa::bobbleSort() {
 	_lSequencial.bobbleSort();
+
+	std::cout << "Feito com sucesso.\n";
+
+	char c;
+	std::cin >> c;
+}
+
+void Programa::quickSort() {
+	_lSequencial.mostrar();
+	_lSequencial.quickSort(0, _lSequencial.getPosicao() - 1);
 
 	std::cout << "Feito com sucesso.\n";
 

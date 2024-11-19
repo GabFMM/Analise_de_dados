@@ -36,6 +36,7 @@ private:
 	void selectionSort();
 	void insertionSort();
 	void bobbleSort();
+	void quickSort();
 
 public:
 	Programa();
