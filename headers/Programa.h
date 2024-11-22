@@ -4,6 +4,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <fstream>
+#include <chrono>
 
 class Programa {
 private:

@@ -748,7 +748,7 @@ void LSequencial::bobbleSort() {
         << std::endl;
 }
 
-void LSequencial::quickSort(unsigned int indiceInicial, unsigned int indiceFinal) {
+void LSequencial::quickSort(unsigned int indiceInicial, unsigned int indiceFinal, unsigned int& comparacoes, unsigned int& modificacoes) {
     unsigned int
         pivo = 0,
         i    = 0,
@@ -758,26 +758,37 @@ void LSequencial::quickSort(unsigned int indiceInicial, unsigned int indiceFinal
     j = indiceFinal;
     pivo = _lista[(i + j) / 2]._RG;
 
-    while (!(i > j)) {
-        while (_lista[i]._RG < pivo)
-            ++i;
-        
-        while (_lista[j]._RG > pivo)
-            --j;
+    while (i <= j) {
+        comparacoes++;
+
+        while (_lista[i]._RG < pivo) { i++; comparacoes++; }
+
+        while (_lista[j]._RG > pivo) { j--; comparacoes++; }
 
         if (i <= j) {
+            comparacoes++;
+
             std::swap(_lista[i]._RG, _lista[j]._RG);
             std::swap(_lista[i]._nome, _lista[j]._nome);
+            modificacoes += 2;
+
             mostrar();
 
-            ++i;
-            --j;
+            i++;
+            j--;
         }
     }
 
-    if (j > indiceInicial)
-        quickSort(j, indiceFinal);
-    
-    if (i < indiceFinal)
-        quickSort(indiceInicial, i);
+    if (i < indiceFinal) {
+        comparacoes++;
+
+        quickSort(i, indiceFinal, comparacoes, modificacoes);
+    }
+
+    if (j > indiceInicial) {
+        comparacoes++;
+
+        quickSort(indiceInicial, j, comparacoes, modificacoes);
+    }
+
 }

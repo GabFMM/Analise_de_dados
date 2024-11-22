@@ -484,8 +484,34 @@ void Programa::bobbleSort() {
 }
 
 void Programa::quickSort() {
+	auto inicio = std::chrono::high_resolution_clock::now();
+
+	unsigned int 
+		comparacoes = 0,
+		modificacoes = 0;
+
+	// Inicia o metodo
+
 	_lSequencial.mostrar();
-	_lSequencial.quickSort(0, _lSequencial.getPosicao() - 1);
+
+	_lSequencial.quickSort(0, _lSequencial.getPosicao() - 1, comparacoes, modificacoes);
+
+	// Fim da logica
+
+	auto fim = std::chrono::high_resolution_clock::now();
+
+	auto duracaoSegundos = std::chrono::duration<double>(fim - inicio);
+	auto duracaoMilissegundos = std::chrono::duration_cast<std::chrono::milliseconds>(fim - inicio);
+	auto duracaoMicrosegundos = std::chrono::duration_cast<std::chrono::microseconds>(fim - inicio);
+
+	std::cout
+		<< "Numero de comparacoes: " << comparacoes << "\n"
+		<< "Numero de modificacoes: " << modificacoes << "\n\n"
+		<< "Tempo de Execucao:\n"
+		<< "-> " << duracaoSegundos.count() << " s\n"
+		<< "-> " << duracaoMilissegundos.count() << " ms\n"
+		<< "-> " << duracaoMicrosegundos.count() << " microsegundos\n"
+		<< std::endl;
 
 	std::cout << "Feito com sucesso.\n";
 
