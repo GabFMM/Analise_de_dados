@@ -12,12 +12,24 @@ Sempre que possível estarei melhorando esse código, deixando-o mais genérico,
 <br>
 <hr>
 <h2> ***** Atualizações ***** </h2>
+<h3> 26.11.2024 </h3>
+<p>
+  - Criação do método ShellSort para a lista sequencial.
+  - Correções diversas.
+</p>
+<br>
 <h3> 21.11.2024 </h3>
 <p>
   - Criação do método quickSort para a lista sequencial.
 </p>
 <br>
 <h2> ***** Updates ***** </h2>
+<h3> 26.11.2024 </h3>
+<p>
+  - Creation of ShellSort method for the sequential list.
+  - Several fixes.
+</p>
+<br>
 <h3> 21.11.2024 </h3>
 <p>
   - Creation of quickSort method for the sequential list.
