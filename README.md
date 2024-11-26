@@ -14,7 +14,7 @@ Sempre que possível estarei melhorando esse código, deixando-o mais genérico,
 <h2> ***** Atualizações ***** </h2>
 <h3> 26.11.2024 </h3>
 <p>
-  - Criação do método ShellSort para a lista sequencial.
+  - Criação do método ShellSort para a lista sequencial. <br>
   - Correções diversas.
 </p>
 <br>
@@ -26,7 +26,7 @@ Sempre que possível estarei melhorando esse código, deixando-o mais genérico,
 <h2> ***** Updates ***** </h2>
 <h3> 26.11.2024 </h3>
 <p>
-  - Creation of ShellSort method for the sequential list.
+  - Creation of ShellSort method for the sequential list. <br>
   - Several fixes.
 </p>
 <br>
