@@ -38,5 +38,9 @@ public:
     void selectionSort();                                                    // Concluido
     void insertionSort();                                                    // Concluido
     void bobbleSort();                                                       // Concluido
+    void shellSort();                                                        // Em processo
+    // mergeSort
+    void mergeSort();                                                        // Em processo
+    void separa(Informacao* lista, unsigned int indiceInicial, unsigned int indiceFinal);
     void quickSort(unsigned int indiceInicial, unsigned int indiceFinal, unsigned int& comparacoes, unsigned int& modificacoes);                                                         // Concluido
 };

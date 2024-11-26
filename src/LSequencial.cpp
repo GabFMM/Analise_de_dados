@@ -52,7 +52,7 @@ void LSequencial::adicionarInformacao(unsigned int rg, const char* nome) {
 
     // Verifica se a lista esta cheia
     if (static_cast<int>(_posicao) == _tam) {
-        _tam += _tam * 0.2f;
+        _tam += _tam / 2;
         Informacao* informacao = new Informacao[_tam];
 
         for (unsigned int i = 0; i < _posicao; i++) {
@@ -657,7 +657,7 @@ void LSequencial::insertionSort() {
         modificacoes = 0;
 
     // Inicia o metodo
-    unsigned int j;
+    unsigned int j = 0;
     unsigned int RG = 0;
     char nome[20]{ '\0' };
 
@@ -746,6 +746,112 @@ void LSequencial::bobbleSort() {
         << "-> " << duracaoMilissegundos.count() << " ms\n"
         << "-> " << duracaoMicrosegundos.count() << " microsegundos\n"
         << std::endl;
+}
+
+void LSequencial::shellSort() {
+    auto inicio = std::chrono::high_resolution_clock::now();
+
+    int comparacoes = 0,
+        modificacoes = 0;
+
+    // Inicia o metodo
+    mostrar();
+
+    int h = 0;
+    unsigned int RG = 0;
+    char nome[20]{'\0'};
+
+    // Calcula o valor de h (gap) seguindo a sequencia de Knuth 1,4,13,...
+    while (h <= (int)_posicao) {
+        h = 3 * h + 1;
+    }
+    h = h / 3;
+
+    // Shell Sort propriamente dito
+    while (h >= 1) {
+        comparacoes++;
+        for (int k = 0; k < h; k++) {
+            comparacoes++;
+            // Insertion sort modificado em funcao de h e k
+            // para percorrer subconjuntos da lista original
+            for (int i = h + k; i < (int)_posicao;i+=h) {
+                comparacoes++;
+
+                int j = i - h;
+                RG = _lista[i]._RG;
+                strcpy_s(nome, sizeof(nome), _lista[i]._nome);
+
+                while (j >= 0 && RG < _lista[j]._RG) {
+                    comparacoes++;
+                    modificacoes += 2;
+
+                    _lista[j + h]._RG = _lista[j]._RG;
+                    strcpy_s(_lista[j + h]._nome, sizeof(_lista[j + h]._nome), _lista[j]._nome);
+                    
+                    j -= h;
+                }
+                modificacoes++;
+
+                _lista[j + h]._RG = RG;
+                strcpy_s(_lista[j + h]._nome, sizeof(_lista[j + h]._nome), nome);
+
+                mostrar();
+            }
+        }
+        // Atualiza o h
+        h /= 3;
+    }
+
+    // Fim da logica
+
+    auto fim = std::chrono::high_resolution_clock::now();
+
+    auto duracaoSegundos = std::chrono::duration<double>(fim - inicio);
+    auto duracaoMilissegundos = std::chrono::duration_cast<std::chrono::milliseconds>(fim - inicio);
+    auto duracaoMicrosegundos = std::chrono::duration_cast<std::chrono::microseconds>(fim - inicio);
+
+    std::cout
+        << "Numero de comparacoes: " << comparacoes << "\n"
+        << "Numero de modificacoes: " << modificacoes << "\n\n"
+        << "Tempo de Execucao:\n"
+        << "-> " << duracaoSegundos.count() << " s\n"
+        << "-> " << duracaoMilissegundos.count() << " ms\n"
+        << "-> " << duracaoMicrosegundos.count() << " microsegundos\n"
+        << std::endl;
+}
+
+void LSequencial::mergeSort() {
+    
+    
+    /*
+    Informacao* lista = nullptr;
+    unsigned int
+        p = 0,
+        q = 0,
+        r = _posicao - 1;
+
+    q = p + (p - r) / 2;
+
+    if (p < q) {
+        separa(_lista, p, q);
+        separa(_lista, q + 1, r);
+    }
+    */
+}
+
+void LSequencial::separa(Informacao* lista, unsigned int indiceInicial, unsigned int indiceFinal) {
+    Informacao* list_A = nullptr;
+    Informacao* list_B = nullptr;
+    unsigned int
+        p = indiceInicial,
+        q = 0,
+        r = indiceFinal;
+
+    q = p + (p - r) / 2;
+
+    list_A = new Informacao[q + 1];
+    list_B = new Informacao[q + 2];
+
 }
 
 void LSequencial::quickSort(unsigned int indiceInicial, unsigned int indiceFinal, unsigned int& comparacoes, unsigned int& modificacoes) {

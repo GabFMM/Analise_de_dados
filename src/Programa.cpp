@@ -122,13 +122,14 @@ void Programa::opcoesOrdenar() {
 		<< "1. Selection Sort;\n"
 		<< "2. Insertion Sort;\n"
 		<< "3. Bobble Sort;\n"
-		<< "4. Quick Sort;\n"
+		<< "4. Shell Sort;\n"
+		<< "5. Quick Sort;\n"
 		<< "\n0. Voltar;\n";
 		
 	std::fflush(stdin);
 
 	std::cin >> _opcaoSelecionada;
-	while (_opcaoSelecionada < 0 || _opcaoSelecionada > 4) {
+	while (_opcaoSelecionada < 0 || _opcaoSelecionada > 5) {
 		std::cout
 			<< "\nNumero informado incorreto.\n"
 			<< "Tente novamente." << std::endl;
@@ -154,9 +155,13 @@ void Programa::opcoesOrdenar() {
 		break;
 	case 4:
 		limparTela();
-		quickSort();
+		shellSort();
 		limparTela();
 		break;
+	case 5:
+		limparTela();
+		quickSort();
+		limparTela();
 	case 0:
 		limparTela();
 		opcoesGerais();
@@ -476,6 +481,15 @@ void Programa::insertionSort() {
 
 void Programa::bobbleSort() {
 	_lSequencial.bobbleSort();
+
+	std::cout << "Feito com sucesso.\n";
+
+	char c;
+	std::cin >> c;
+}
+
+void Programa::shellSort() {
+	_lSequencial.shellSort();
 
 	std::cout << "Feito com sucesso.\n";
 

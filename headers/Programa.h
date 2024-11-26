@@ -37,6 +37,7 @@ private:
 	void selectionSort();
 	void insertionSort();
 	void bobbleSort();
+	void shellSort();
 	void quickSort();
 
 public:
