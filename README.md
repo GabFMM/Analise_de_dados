@@ -4,9 +4,9 @@
 
 <p>
 Esse repositorio, por meio do C++ e do Visual Studio, tem como função armazenar e manipular diferentes tipos de dados extraídos a partir de um arquivo. Nele, estruturas de conteiners, como vector e list, não serão usados, a fim de aumentar o aprendizado.
-Ademais, esse projeto foi criado visando a realização de várias avaliações acadêmicas, no estudo da disciplina de estruturas de dados da UTFPR.
+Ademais, esse projeto foi criado visando a realização de várias avaliações acadêmicas, no estudo da disciplina de estruturas de dados 1 da UTFPR.
 
-Sempre que possível estarei melhorando esse código, deixando-o mais genérico, mais legível, mais documentado (um dia), mais amplo, entre outros.
+Projeto fechado. Não haverão mais atualizações.
 </p>
 <h3> Autor: Gabriel Felipe Miguel Machado. </h3> 
 <br>
